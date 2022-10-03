@@ -4,7 +4,7 @@ import string
 from odoo import models, fields, api
 import logging
 from odoo.exceptions import ValidationError
-from twilio.rest import Client
+
 # import fbchat
 # from getpass import getpass
 class goldPrice(models.Model):

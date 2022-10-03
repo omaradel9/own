@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+
+    #  <record model="ir.ui.view" id="product_view_inherit">
+    #    <field name="name">product.view.inherit</field>
+    #    <field name="model">product.template</field>
+    #    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    #    <field name="arch" type="xml">
+    #      <xpath expr="//field[@name='barcode']" position="after">
+    #        <field name="item_cat"/>
+    #        <field name="Stone_type_name" options="{'no_create': True, 'no_create_edit':True}" attrs="{'readonly': [('id', '!=', False)],'invisible': [('item_cat', 'not in', ['3','4',True])]} "/>
+    #        <field name="karat"  attrs="{'readonly': [('id', '!=', False)],'invisible': [('item_cat', 'in', ['3','8','4',False])]}"/>
+    #        <field name="karat_silver"  attrs="{'readonly': [('id', '!=', False)],'invisible': [('item_cat', 'not in', ['8',True])]}"/>
+
+    #        <field name="has_stones" invisible="1"/>
+    #        <field name="has_stones_price" invisible="1"/>
+          
+
+    #      </xpath>
+    #    </field>
+    #  </record>
+
+    #  <record model="ir.ui.view" id="product_bom_view_inherit">
+    #    <field name="name">product.bom.view.inherit</field>
+    #    <field name="model">mrp.bom</field>
+    #    <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+    #    <field name="arch" type="xml">
+    #      <xpath expr="//page/field[@name='bom_line_ids']/tree/field[@name='product_id']"  position="attributes">
+    #        <attribute name="domain">[('item_cat', 'in', ('3','2'))]</attribute>
+    #      </xpath>
+    #    </field>
+    #  </record>
+
+
+  </data>
+</odoo>

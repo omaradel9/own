@@ -227,26 +227,31 @@ class PurchaseOrderLineOld(models.Model):
            
     @api.onchange('serialso')
     def serial_so(self):
-        if self.order_id.sale_categ == '2' :
+        if self.order_id.sale_categ == '5' :
             for line in self :
                 line.product_id  = line.serialso.product_id
-
-    @api.onchange('product_id')
-    def serial_soffr(self):
-        if self.order_id.sale_categ == '2' :
-            for line in self :
-                if line.product_id  :
-                    line.product_qty =  1
-                    
-    @api.onchange('product_uom')
-    def serial_product_qty(self):
-        if self.order_id.sale_categ == '2' :
-    
-            for line in self :
+                
                 if self.order_id.sale_mode == '1' :
                     line.price_unit = line.serialso.whole_gold
                 elif self.order_id.sale_mode == '2' :
                     line.price_unit = line.serialso.retail_gold
+
+    # @api.onchange('product_id')
+    # def serial_soffr(self):
+    #     if self.order_id.sale_categ == '2' :
+    #         for line in self :
+    #             if line.product_id  :
+    #                 line.product_qty =  1
+                    
+    # @api.onchange('product_uom')
+    # def serial_product_qty(self):
+    #     if self.order_id.sale_categ == '2' :
+    
+    #         for line in self :
+    #             if self.order_id.sale_mode == '1' :
+    #                 line.price_unit = line.serialso.whole_gold
+    #             elif self.order_id.sale_mode == '2' :
+    #                 line.price_unit = line.serialso.retail_gold
                     
     @api.onchange('serial','weight')
     def product_change(self):

@@ -1,0 +1,113 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="purchase_order_view_inherit">
+      <field name="name">purchase.order.view.inherit1</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='currency_id']" position="after">
+          <field name="sale_categ"/>
+          <!-- <field name="vals"/> -->
+
+          <field name="field_invis" invisible="1"/>
+
+        </xpath>
+        <xpath expr="//header/button[@name='action_rfq_send']" position="after">
+          <field name="product_rec" invisible="1"/>
+          <!-- <field name="incoming_picking_count" invisible="1"/> -->
+
+           <button name="action_set_picking" string="Receive Products" class="oe_highlight" type="object" attrs="{'invisible': [('product_rec','=', True)]}" data-hotkey="y" groups="stock.group_stock_user"/>
+        </xpath>
+        <xpath expr="//div[@name='date_planned_div']" position="after">
+           <field name="sale_mode"/>
+        </xpath>
+
+        <xpath expr="//page[@name='purchase_delivery_invoice']" position="after">
+          <page string="Total Gold" name="total_gold" attrs="{'invisible':[('sale_categ', 'not in' , ('1','6','2','7'))]}">
+            <group>
+ 
+            <group>
+              
+              <field name="k9"/>
+              <field name="k12"/>
+              <field name="k14"/>
+              <field name="k18"/>
+              <field name="k21"/>
+              <field name="k22"/>
+              <field name="k24"/>
+            </group>
+            <group>
+              <field name="c_karat"  readonly="1" force_save="1" />
+            </group>
+
+            </group>
+        </page>
+        </xpath>
+       
+       
+         
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_id']" position="after">
+              <field name="field_invis" invisible="1"/>
+              <field name="serial" force_save="1" attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('1','4','6','7'))]}"/>
+        </xpath>
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_id']" position="before">
+          <field name="serialso" attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('5'))]}"/>
+          <field name="cost_price_gold" invisible="1"/>
+
+        </xpath>
+         <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_qty']" position="after">
+          <field name="sale_sale"      invisible="1"/>
+
+          <field name="karats"        attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('1','6','2','7'))]}" readonly="1" force_save="1"/>
+          <field name="c_karats"      attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('1','6','2','7'))]}" readonly="1" force_save="1"/>
+          <field name="gold_price"    attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('1','6','2','7'))]}" readonly="1" force_save="1"/>
+          <field name="weight"        attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('1','6','2','7','4','3'))]}"/>
+          <field name="Stone_types"   attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('3', '4'))]}" force_save="1" readonly="1"/>
+          <field name="stone_size"    attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('3', '4'))]}" force_save="1"/>
+          <field name="stone_color"   attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('3', '4'))]}" force_save="1"/>
+          <field name="stone_config"  attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('4'))]}"      force_save="1"/>
+          <field name="stone_style"   attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('3', '4'))]}" force_save="1"/>
+
+         </xpath>
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_uom']" position="after">
+          <field name="making_price"  attrs="{'column_invisible':[('parent.sale_categ', 'not in' , ('1','6','2','7'))]}" readonly="1" force_save="1"/>
+        </xpath>
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='name']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+          <attribute name="readonly">0</attribute>
+          <!-- <attribute name="domain">[('item_cat', '=', '3')]</attribute> -->
+        </xpath>
+
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='name']" position="attributes">
+          <attribute name="readonly">0</attribute>
+        </xpath>
+
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+          <!-- <attribute name="readonly">1</attribute> -->
+          <attribute name="force_save">1</attribute>
+          <attribute name="attrs">{'readonly':[('parent.sale_categ', 'not in' , ('3', '4'))]}</attribute>
+
+        </xpath>
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
+          <attribute name="attrs">{'readonly':[('parent.sale_categ', 'not in' , ('3', '4'))],'column_invisible':[('parent.sale_categ', 'in' , ('3', '4'))]}</attribute>
+        </xpath>
+
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_uom']" position="attributes">
+          <attribute name="readonly">1</attribute>
+        </xpath>
+        <xpath expr="//page/field[@name='order_line']/tree/field[@name='taxes_id']" position="attributes">
+          <attribute name="readonly">1</attribute>
+        </xpath>
+        
+
+      </field>
+    </record>
+
+
+
+
+  </data>
+</odoo>

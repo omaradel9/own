@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+      <!-- <record model="ir.ui.view" id="stone_types">
+        <field name="name">stone Type</field>
+        <field name="model">stone.type</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="type_name"/>
+           
+          </tree>
+        </field>
+      </record>
+      <record model="ir.ui.view" id="stone_typesform">
+        <field name="name">stone Type</field>
+        <field name="model">stone.type</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+          <form string="stone Type">
+            <sheet>
+           
+                  
+                  
+                      <field name="type_name"/>
+                   
+  
+          </sheet>
+          </form>
+        </field>
+      </record>
+      <record model="ir.actions.act_window" id="stone_action_window">
+        <field name="name">stone Type</field>
+        <field name="model">stone.type</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      
+      <menuitem name="stone Type Name" id="stone.menu" parent="stock.menu_stock_inventory_control" action="stone_action_window" /> -->
+
+  </data>
+</odoo>

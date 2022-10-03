@@ -25,11 +25,11 @@ class Product(models.Model):
                                             ,('8', 'Silver')
                                             ], string='Item Category')
     
-    @api.onchange('seller_ids')
-    def _onchange_(self):
-       num_vend = len(self.seller_ids)
-       if num_vend > 1 :
-            raise ValidationError("Please one Vendor")
+    # @api.onchange('seller_ids')
+    # def _onchange_(self):
+    #    num_vend = len(self.seller_ids)
+    #    if num_vend > 1 :
+    #         raise ValidationError("Please one Vendor")
 
     
 

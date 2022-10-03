@@ -228,6 +228,7 @@ class PurchaseOrderLineOld(models.Model):
     @api.onchange('serialso')
     def serial_so(self):
         if self.order_id.sale_categ == '5' :
+            self.sale_sale  = self.order_id.sale_mode
             for line in self :
                 line.product_id  = line.serialso.product_id
                 

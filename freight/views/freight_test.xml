@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    <record model="ir.ui.view" id="freight.testt_form">
+      <field name="name">Freight Form</field>
+      <field name="model">freight.test</field>
+      <field name="arch" type="xml">
+        <form>
+        <sheet>
+        <div class="oe_button_box" name="button_box">
+                        <button name="sale_tmpl_id.preview_sale_order" type="object" class="oe_stat_button" icon="fa-globe icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Customer</span>
+                                <span class="o_stat_text">Preview</span>
+                            </div>
+                        </button>
+                        <!-- <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button> -->
+         </div>
+        <group>
+            <field name="sale_tmpl_id"/>
+        </group>
+        <group>
+          <field name="cost" eval="0.0" />
+            
+        </group>
+        </sheet>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="freight.testt_list">
+      <field name="name">Freight List</field>
+      <field name="model">freight.test</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="sale_tmpl_id"/>
+          <field name="cost" eval="0.0" />
+          
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="freight.testt_action_window">
+      <field name="name">Freight Action</field>
+      <field name="res_model">freight.test</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+        
+    <menuitem name="Freights" id="freight.testts"  action="freight.testt_action_window" parent="freight.menu_root"/>
+
+
+    </data>
+    
+
+</odoo>
